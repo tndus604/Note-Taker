@@ -22,11 +22,11 @@ app.use(express.json()); //for parsing application/json
 
 // Basic route that sends the user first to the AJAX Page
 app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "/public/index.html"));
+    res.sendFile(path.join(__dirname, "./public/index.html"));
 });
 
 app.get("/notes", function(req, res){
-    res.sendFile(path.join(__dirname, "/public/notes.html"))
+    res.sendFile(path.join(__dirname, "./public/notes.html"))
 })
 
 //=============API ROUTES==============
@@ -36,7 +36,7 @@ app.get("/notes", function(req, res){
 // ============================
 
 function loadNotes() {
-    var notes = JSON.parse( fs.readFileSync( '../Develop/db/db.json', 'utf8' ) )
+    var notes = JSON.parse( fs.readFileSync( './db/db.json', 'utf8' ) )
     return notes;
 }
 
@@ -52,7 +52,7 @@ app.get("/api/notes", function(req, res) {
 
 function saveNotes() {
     var notesJSON = JSON.stringify(noteList);
-    fs.writeFileSync ("../Develop/db/db.json", notesJSON);
+    fs.writeFileSync ("./db/db.json", notesJSON);
 };
 
 app.post("/api/notes", function(req, res) {
