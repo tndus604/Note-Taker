@@ -40,8 +40,7 @@ function loadNotes() {
     return notes;
 }
 
-var noteList = loadNotes()
-
+var noteList = loadNotes();
 
 
 app.get("/api/notes", function(req, res) {
