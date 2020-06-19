@@ -7,7 +7,7 @@ var path = require("path");
 // Sets up the Express App
 // ============================
 var app = express();
-var PORT = 3000;
+var PORT = process.env.PORT || 3000;
 
 // Sets up the express app to dangle data parsing
 app.use(express.static('public'));
